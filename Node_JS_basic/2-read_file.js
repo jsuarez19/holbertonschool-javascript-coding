@@ -1,42 +1,46 @@
-import parse from 'csv-parse/lib/sync';
-
 const fs = require('fs');
 
 function countStudents(path) {
   try {
     const csvData = fs.readFileSync(path, 'utf8');
-    // Does not take into consideration the first line
-    const records = parse(csvData, {
-      columns: true,
-      skip_empty_lines: true,
-    });
+    const lines = csvData.split('\n');
 
     const studentCountsByField = {};
+    let totalStudents = 0;
 
-    for (const record of records) {
-      const field = record.field;
+    for (const line of lines) {
+      const columns = line.split(',');
+      const [firstName, , , field] = columns.map((column) => column.trim());
 
-      // Logs the number of students in each field
+
+      if (!field || !firstName) {
+        continue; // Saltar líneas incompletas
+      }
+
       if (studentCountsByField[field]) {
-        studentCountsByField[field]++;
+        studentCountsByField[field] += 1;
       } else {
         studentCountsByField[field] = 1;
       }
-    }
 
-    const totalStudents = records.length;
+      totalStudents += 1;
+    }
 
     console.log(`Number of students: ${totalStudents}`);
 
     for (const field in studentCountsByField) {
-      console.log(`Number of students in ${field}: ${studentCountsByField[field]}. List: ${records
-        .filter((record) => record.field === field)
-        .map((record) => record.firstname)
+      console.log(`Number of students in ${field}: ${studentCountsByField[field]}. List: ${lines
+        .filter((line) => line.includes(field))
+        .map((line) => line.split(',')[0].trim())
         .join(', ')}`);
     }
   } catch (error) {
     throw new Error('Cannot load the database');
   }
 }
+
+// Llama a la función con la ruta al archivo CSV
+countStudents('database.csv');
+
 
 module.exports = countStudents;
