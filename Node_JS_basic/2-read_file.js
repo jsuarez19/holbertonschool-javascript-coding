@@ -1,5 +1,5 @@
 const fs = require('fs');
-const parse = require('csv-parse/lib/sync');
+import parse from 'csv-parse/lib/sync';
 
 function countStudents(path) {
   
