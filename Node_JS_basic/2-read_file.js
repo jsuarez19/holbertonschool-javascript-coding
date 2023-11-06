@@ -10,7 +10,7 @@ function countStudents(path) {
 
     for (const line of lines) {
       const columns = line.split(',');
-      const [firstName, , , field] = columns.map((column) => column.trim());
+      const [, , , field] = columns.map((column) => column.trim());
 
       if (studentCountsByField[field]) {
         studentCountsByField[field] += 1;
@@ -22,7 +22,7 @@ function countStudents(path) {
     }
 
     console.log(`Number of students: ${totalStudents}`);
-    
+
     for (const field of Object.keys(studentCountsByField)) {
       const studentsInField = lines
         .filter((line) => line.includes(field))
