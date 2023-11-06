@@ -1,8 +1,8 @@
-const fs = require('fs');
 import parse from 'csv-parse/lib/sync';
 
+const fs = require('fs');
+
 function countStudents(path) {
-  
   try {
     const csvData = fs.readFileSync(path, 'utf8');
     // Does not take into consideration the first line
@@ -39,4 +39,4 @@ function countStudents(path) {
   }
 }
 
-module.exports = displayMessage;
+module.exports = countStudents;
