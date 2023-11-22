@@ -10,8 +10,10 @@ request(starWarsFilmsList, (error, response, body) => {
   if (response.statusCode === 200) {
     const filmsData = JSON.parse(body); // converts it into a JavaScript object
     for (const film of filmsData.results) {
-      if (film.characters.includes(id)) {
-        count = count + 1;
+      for (const character of film.characters) {
+        if (film.character.includes(id)) {
+          count = count + 1;
+        }
       }
     }
     console.log(count);
