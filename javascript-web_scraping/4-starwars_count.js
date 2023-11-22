@@ -11,7 +11,7 @@ request(starWarsFilmsList, (error, response, body) => {
     return;
   }
   if (response.statusCode === 200) {
-    try{
+    try {
       const filmsData = JSON.parse(body); // converts it into a JavaScript object
       for (const film of filmsData.results) {
         for (const character of film.characters) {
@@ -22,7 +22,7 @@ request(starWarsFilmsList, (error, response, body) => {
       }
       console.log(count);
     } catch (parseError) {
-      console.error('Error parsing JSON')
+      console.error('Error parsing JSON');
     }
   }
 });
