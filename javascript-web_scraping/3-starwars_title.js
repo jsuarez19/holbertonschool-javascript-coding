@@ -5,7 +5,7 @@ const starWarsFilms = 'https://swapi-api.hbtn.io/api/films/'.concat(process.argv
 
 request(starWarsFilms, (error, response, body) => {
   if (error) console.log(error);
-  if (response === 200) {
+  if (response.statusCode === 200) {
     const filmData = JSON.parse(body); // converts it into a JavaScript object
     console.log(filmData.title);
   }
