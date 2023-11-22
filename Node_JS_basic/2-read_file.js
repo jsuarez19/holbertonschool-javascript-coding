@@ -1,8 +1,8 @@
-const fs = require('fs');
+import { readFileSync } from 'fs';
 
 function countStudents(path) {
   try {
-    const csvData = fs.readFileSync(path, 'utf8');
+    const csvData = readFileSync(path, 'utf8');
     const lines = csvData.split('\n');
 
     const studentCountsByField = {};
@@ -36,4 +36,4 @@ function countStudents(path) {
   }
 }
 
-module.exports = countStudents;
+export default countStudents;
