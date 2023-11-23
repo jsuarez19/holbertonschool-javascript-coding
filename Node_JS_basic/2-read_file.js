@@ -16,21 +16,20 @@ function countStudents(path) {
       const [name, , , field] = columns.map((column) => column.trim());
 
       if (field === 'CS') {
-        studentsCountsByField.CS += 1;
+        studentCountsByField.CS += 1;
         csStudents.push(name.trim());
       } else if (field === 'SWE') {
-        studentsCountsByField.SWE += 1;
+        studentCountsByField.SWE += 1;
         sweStudents.push(name.trim());
       }
 
       totalStudents += 1;
     }
 
-    console.log(`Number of students: ${totalStudents}`)
-    console.log(`Number of students in CS: ${studentsCountsByField.CS}. List: ${csStudents.join(', ')}`);
-    console.log(`Number of students in SWE: ${studentsCountsByField.SWE}. List: ${sweStudents.join(', ')}`);
-  }
-  catch (error) {
+    console.log(`Number of students: ${totalStudents}`);
+    console.log(`Number of students in CS: ${studentCountsByField.CS}. List: ${csStudents.join(', ')}`);
+    console.log(`Number of students in SWE: ${studentCountsByField.SWE}. List: ${sweStudents.join(', ')}`);
+  } catch (error) {
     throw new Error('Cannot load the database');
   }
 }
