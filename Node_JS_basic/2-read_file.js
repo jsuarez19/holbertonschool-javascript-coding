@@ -12,7 +12,7 @@ function countStudents(path) {
 
     for (const line of lines) {
       const columns = line.split(',');
-      const [firstname, , , field] = columns.map((column) => column.trim());
+      const [firstname, , , field] = line.split(',');
 
       if (field === 'CS') {
         studentCountsByField.CS += 1;
