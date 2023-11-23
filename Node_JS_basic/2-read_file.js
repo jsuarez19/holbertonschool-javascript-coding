@@ -3,7 +3,7 @@ import { readFileSync } from 'fs';
 function countStudents(path) {
   try {
     const csvData = readFileSync(path, 'utf8');
-    const lines = csvData.split('\n');
+    const lines = csvData.trim().split('\n').slice(1);
     // Initialize the count for both fields
     const studentCountsByField = { CS: 0, SWE: 0 };
     const csStudents = [];
