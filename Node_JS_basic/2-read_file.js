@@ -10,7 +10,7 @@ function countStudents(path) {
     const sweStudents = [];
     let totalStudents = 0;
 
-    for (const line of lines) {
+    lines.forEach((line) => {
       const [firstname, , , field] = line.split(',');
 
       if (field === 'CS') {
@@ -22,7 +22,7 @@ function countStudents(path) {
       }
 
       totalStudents += 1;
-    }
+    })
 
     console.log(`Number of students: ${totalStudents}`);
     console.log(`Number of students in CS: ${studentCountsByField.CS}. List: ${csStudents.join(', ')}`);
