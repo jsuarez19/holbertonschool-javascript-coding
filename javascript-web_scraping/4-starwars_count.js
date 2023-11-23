@@ -1,11 +1,10 @@
 #!/usr/bin/node
 
 const request = require('request');
-const starWarsFilmsList = 'https://swapi-api.hbtn.io/api/films/';
 const id = 'https://swapi-api.hbtn.io/api/people/18/';
 let count = 0;
 
-request(starWarsFilmsList, (error, response, body) => {
+request(process.argv[2], (error, response, body) => {
   if (error) {
     console.error(error);
     return;
