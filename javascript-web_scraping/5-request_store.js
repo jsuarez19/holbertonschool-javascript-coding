@@ -14,5 +14,5 @@ request(process.argv[2], (error, response, body) => {
     fs.writeFile(process.argv[3], data, 'utf-8', (err) => {
       if (err) console.log(err);
     });
-  };
-})
+  }
+});
