@@ -8,7 +8,6 @@ function countStudents(path) {
     const studentCountsByField = { CS: 0, SWE: 0 };
     const csStudents = [];
     const sweStudents = [];
-
     let totalStudents = 0;
 
     for (const line of lines) {
