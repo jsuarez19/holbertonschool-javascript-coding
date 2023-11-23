@@ -10,7 +10,7 @@ request(process.argv[2], (error, response, body) => {
   }
 
   if (response.statusCode === 200) {
-    const data = JSON.parse(body);
+    const data = JSON.parse(body); // Parse JSON into JS object
     fs.writeFile(process.argv[3], data, 'utf-8', (err) => {
       if (err) console.log(err);
     });
