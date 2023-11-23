@@ -22,7 +22,7 @@ function countStudents(path) {
       }
 
       totalStudents += 1;
-    })
+    });
 
     console.log(`Number of students: ${totalStudents}`);
     console.log(`Number of students in CS: ${studentCountsByField.CS}. List: ${csStudents.join(', ')}`);
