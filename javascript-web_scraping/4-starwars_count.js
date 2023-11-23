@@ -1,7 +1,7 @@
 #!/usr/bin/node
 
 const request = require('request');
-const id = 'https://swapi-api.hbtn.io/api/people/18/';
+const id = '18';
 let count = 0;
 
 request(process.argv[2], (error, response, body) => {
