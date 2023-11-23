@@ -12,14 +12,14 @@ function countStudents(path) {
 
     for (const line of lines) {
       const columns = line.split(',');
-      const [name, , , field] = columns.map((column) => column.trim());
+      const [firstname, , , field] = columns.map((column) => column.trim());
 
       if (field === 'CS') {
         studentCountsByField.CS += 1;
-        csStudents.push(name.trim());
+        csStudents.push(firstname.trim());
       } else if (field === 'SWE') {
         studentCountsByField.SWE += 1;
-        sweStudents.push(name.trim());
+        sweStudents.push(firstname.trim());
       }
 
       totalStudents += 1;
