@@ -1,7 +1,7 @@
 #!/usr/bin/node
 
 const request = require('request');
-apiUrl = 'https://jsonplaceholder.typicode.com/todos'
+const apiUrl = 'https://jsonplaceholder.typicode.com/todos';
 
 request(apiUrl, (error, response, body) => {
   if (error) {
@@ -9,7 +9,7 @@ request(apiUrl, (error, response, body) => {
     return;
   }
   if (response.statusCode === 200) {
-    data = JSON.parse(body);
+    const data = JSON.parse(body);
     const completedTasksByUser = {};
 
     data.forEach(element => {
@@ -21,6 +21,6 @@ request(apiUrl, (error, response, body) => {
         }
       }
     });
-    console.log(completedTasksByUser)
+    console.log(completedTasksByUser);
   }
 });
