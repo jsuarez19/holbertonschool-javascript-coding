@@ -1,8 +1,8 @@
-import { readFileSync } from 'fs';
+const fs = require('fs');
 
 function countStudents(path) {
   try {
-    const csvData = readFileSync(path, 'utf8');
+    const csvData = fs.readFileSync(path, 'utf8');
     const lines = csvData.trim().split('\n').slice(1);
     // Initialize the count for both fields
     const studentCountsByField = { CS: 0, SWE: 0 };
