@@ -1,4 +1,4 @@
-const fs = require('fs');
+const fs = require('fs').promises;
 
 function countStudents(path) {
   return new Promise((resolve, reject) => {
