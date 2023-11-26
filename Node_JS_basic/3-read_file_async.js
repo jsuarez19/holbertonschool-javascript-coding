@@ -3,7 +3,7 @@ const fs = require('fs').promises;
 function countStudents(path) {
   return fs.readFile(path, 'utf8')
     .then((data) => {
-      const data = fs.readFile(path, 'utf8');
+      data = fs.readFile(path, 'utf8');
       const lines = data.trim().split('\n').slice(1);
 
       // Initialize the count for both fields
