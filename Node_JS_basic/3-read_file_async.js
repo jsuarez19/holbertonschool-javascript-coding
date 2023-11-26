@@ -3,7 +3,6 @@ const fs = require('fs').promises;
 function countStudents(path) {
   return fs.readFile(path, 'utf8')
     .then((data) => {
-      data = fs.readFile(path, 'utf8');
       const lines = data.trim().split('\n').slice(1);
 
       // Initialize the count for both fields
@@ -29,11 +28,10 @@ function countStudents(path) {
       console.log(`Number of students: ${totalStudents}`);
       console.log(`Number of students in CS: ${studentCountsByField.CS}. List: ${csStudents.join(', ')}`);
       console.log(`Number of students in SWE: ${studentCountsByField.SWE}. List: ${sweStudents.join(', ')}`);
-      resolve();
     })
-    .catch (() => {
+    .catch(() => {
       throw Error('Cannot load the database');
     });
-  }
+}
 
 module.exports = countStudents;
