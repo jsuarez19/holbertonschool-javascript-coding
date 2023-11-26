@@ -12,7 +12,7 @@ app.get('/students', async (req, res) => {
   } catch (error) {
     res.status(500).send(error.message);
   }
-})
+});
 app.listen(PORT);
 
 module.exports = app;
